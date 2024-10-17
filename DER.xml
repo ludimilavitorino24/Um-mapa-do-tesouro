@@ -29,48 +29,48 @@
 		<type label="FLOAT" length="1" sql="FLOAT" quote=""/>
 		<type label="DOUBLE" length="0" sql="DOUBLE PRECISION" quote=""/>
 	</group>
-</datatypes><table x="422" y="45" name="t_sensors">
+</datatypes><table x="391" y="56" name="t_sensors">
 <row name="id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
-</row>
-<row name="name" null="0" autoincrement="0">
-<datatype>VARCHAR2(50)</datatype>
-</row>
-<row name="type_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<relation table="t_sensor_types" row="id" />
-</row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="663" y="54" name="t_sensor_types">
-<row name="id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
-</row>
-<row name="name" null="0" autoincrement="0">
-<datatype>VARCHAR2(50)</datatype>
-</row>
-<row name="qtd_outputs" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="654" y="211" name="t_output_types">
-<row name="id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 </row>
 <row name="name" null="0" autoincrement="0">
 <datatype>VARCHAR2(50)</datatype>
 </row>
 <row name="sensor_type_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
+<relation table="t_sensor_types" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="737" y="56" name="t_sensor_types">
+<row name="id" null="0" autoincrement="1">
+<datatype>NUMBER</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR2(50)</datatype>
+</row>
+<row name="qtd_outputs" null="1" autoincrement="0">
+<datatype>NUMBER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="676" y="223" name="t_output_sensor_types">
+<row name="id" null="0" autoincrement="1">
+<datatype>NUMBER</datatype>
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR2(50)</datatype>
+</row>
+<row name="sensor_type_id" null="0" autoincrement="0">
+<datatype>NUMBER</datatype>
 <relation table="t_sensor_types" row="id" />
 </row>
 <row name="type_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 <relation table="t_types" row="id" />
 </row>
 <key type="PRIMARY" name="">
@@ -79,17 +79,17 @@
 </table>
 <table x="90" y="124" name="t_sensors_log">
 <row name="id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 </row>
 <row name="sensor_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 <default>NULL</default><relation table="t_sensors" row="id" />
 </row>
 <row name="value" null="1" autoincrement="0">
 <datatype>DOUBLE PRECISION</datatype>
 <default>NULL</default></row>
 <row name="type_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 <relation table="t_types" row="id" />
 </row>
 <row name="latitude" null="1" autoincrement="0">
@@ -107,7 +107,7 @@
 </table>
 <table x="406" y="306" name="t_types">
 <row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>VARCHAR2(50)</datatype>
@@ -118,14 +118,14 @@
 </table>
 <table x="727" y="423" name="t_recommendations">
 <row name="id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 </row>
 <row name="input_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 <default>NULL</default><relation table="t_inputs" row="id" />
 </row>
 <row name="input_qtd" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 <default>NULL</default></row>
 <row name="latitude" null="1" autoincrement="0">
 <datatype>DOUBLE PRECISION</datatype>
@@ -142,7 +142,7 @@
 </table>
 <table x="502" y="632" name="t_inputs">
 <row name="id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 </row>
 <row name="name" null="1" autoincrement="0">
 <datatype>VARCHAR2(50)</datatype>
@@ -153,14 +153,14 @@
 </table>
 <table x="169" y="457" name="t_applications_log">
 <row name="id" null="0" autoincrement="1">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 </row>
 <row name="recommendation_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 <default>NULL</default><relation table="t_recommendations" row="id" />
 </row>
 <row name="input_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>NUMBER</datatype>
 <relation table="t_inputs" row="id" />
 </row>
 <row name="input_qtd" null="0" autoincrement="0">
